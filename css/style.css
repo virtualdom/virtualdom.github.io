@@ -1,0 +1,15 @@
+@font-face {
+    font-family: cuprum;
+    src: url(../views/fonts/Cuprum.otf);
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: cuprum;
+    text-align: center;
+}
+
+a {
+    color: #fff;
+}
