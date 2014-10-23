@@ -1,24 +1,13 @@
 {
-  "name": "BigT",
-  "version": "0.0.1",
-  "description": "Static hosted site for informational purposes.",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": "0.10.x",
-    "npm": "1.3.x"
+    "start": "npm install; node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:dominicjoseph/big-t.git"
+    "url": "git@heroku.com:dominicpjoseph.git"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "connect": "3.0.1",
-    "serve-static": "1.3.0"
+  "dependencies": {
+    "express": "^4.11.2"
   }
 }
