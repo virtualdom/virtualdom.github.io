@@ -3,14 +3,97 @@
     src: url(../views/fonts/Cuprum.otf);
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
+    background: url('../views/img/posterboy.png') no-repeat bottom right;
+    background-size: auto 75%;
     background-color: #000;
     color: #fff;
     font-family: cuprum;
     text-align: center;
+    text-shadow: 0px 0px 1px #000000;
+}
+
+h1 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a {
     color: #fff;
-    text-decoration: underline;
+    padding: 0 1%;
+}
+
+p {
+    font-size: 20px;
+}
+
+#blurb {
+    padding: 0 5%;
+}
+
+p img {
+    width: 45px;
+    padding: 0 5px;
+}
+
+#test {
+    -webkit-animation: myfirst 1s;
+    animation: myfirst 1s;
+}
+
+#twitter {
+    position: relative;
+    -webkit-animation: myfirstButton 1s ease-in .5s forwards;
+    animation: myfirstButton 1s ease-in .5s forwards;
+    opacity: 0;
+}
+
+#linkedin {
+    position: relative;
+    -webkit-animation: myfirstButton 1s ease-in .75s forwards;
+    animation: myfirstButton 1s ease-in .75s forwards;
+    opacity: 0;
+}
+
+#nectarom {
+    position: relative;
+    -webkit-animation: myfirstButton 1s ease-in 1s forwards;
+    animation: myfirstButton 1s ease-in 1s forwards;
+    opacity: 0;
+}
+
+#mailto {
+    position: relative;
+    -webkit-animation: myfirstButton 1s ease-in 1.25s forwards;
+    animation: myfirstButton 1s ease-in 1.25s forwards;
+    opacity: 0;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    from {opacity: 0.0;}
+    to {opacity: 1.0;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    from {opacity: 0.0;}
+    to {opacity: 1.0;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirstButton {
+    from {opacity: 0.0; top: 50px;}
+    to {opacity: 1.0; top: 0px;}
+}
+
+/* Standard syntax */
+@keyframes myfirstButton {
+    from {opacity: 0.0; top: 50px;}
+    to {opacity: 1.0; top: 0px;}
 }
