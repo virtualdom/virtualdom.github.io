@@ -1,0 +1,54 @@
+@font-face {
+    font-family: cuprum;
+    src: url(../views/fonts/Cuprum.otf);
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: url('../views/img/background.jpg') no-repeat bottom right;
+    background-size: cover;
+    background-color: #000;
+    color: #fff;
+    font-family: cuprum;
+    text-align: center;
+    text-shadow: 0px 0px 1px #000000;
+}
+
+#headericon {
+    max-width: 100%;
+    min-width: 400px;
+    text-align: left;
+}
+
+#headericon img {
+    width: 60px;
+    padding: 5px;
+}
+
+#chatbubble {
+    margin: auto;
+    margin-bottom: 10px;
+    background-color:#fff;
+    max-height: 400px;
+    max-width: 50%;
+    min-height: 400px;
+    min-width: 400px;
+    word-wrap: break-word;
+    text-align: left;
+    color: black;
+    text-shadow:none;
+    padding:10px;
+    overflow:scroll;
+}
+
+#inputbox {
+     color: black;
+    margin-top: 46px;
+    margin: 0px;
+    width: 50%;
+    min-width: 400px;
+    resize: none;
+}

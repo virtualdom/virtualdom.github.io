@@ -67,10 +67,17 @@ p img {
     opacity: 0;
 }
 
-#mailto {
+#alfred {
     position: relative;
     -webkit-animation: myfirstButton 1s ease-in 1.25s forwards;
     animation: myfirstButton 1s ease-in 1.25s forwards;
+    opacity: 0;
+}
+
+#mailto {
+    position: relative;
+    -webkit-animation: myfirstButton 1s ease-in 1.5s forwards;
+    animation: myfirstButton 1s ease-in 1.5s forwards;
     opacity: 0;
 }
 
