@@ -8,8 +8,8 @@ html {
 }
 
 body {
-    background: url('../views/img/posterboy.png') no-repeat bottom right;
-    background-size: auto 75%;
+    background: url('../views/img/background.jpg') no-repeat bottom right;
+    background-size: cover;
     background-color: #000;
     color: #fff;
     font-family: cuprum;
