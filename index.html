@@ -16,11 +16,11 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-    <div style="margin: 0 auto;">
-    <div id="test">
-        <img src="./views/img/insignia.png" style="max-width: 70px; width: 70px; margin-top: 15%;">
-        <h1>Hi, I'm Dom.</h1>
-        <p id="blurb">And I enjoy ping pong, coding, and pizza, but not in that order.</p>
+    <div id="wrap" style="margin: 0 auto; display: none;">
+        <div id="test">
+            <img src="./views/img/insignia.png" style="max-width: 70px; width: 70px; margin-top: 15%;">
+            <h1>Hi, I'm Dom.</h1>
+            <p id="blurb">And I enjoy ping pong, coding, and pizza, but not in that order.</p>
         </div>
         <p id="#buttons">
             <a href="https://twitter.com/virtualdom_" target="_top">
@@ -41,4 +41,10 @@
         </p>
     </div>
 </body>
+
+<script type="text/javascript">
+    setTimeout(function () {
+        $('#wrap').css('display', 'block');
+    }, 1000);
+</script>
 </html>
