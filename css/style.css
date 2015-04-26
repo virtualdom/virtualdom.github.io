@@ -18,7 +18,9 @@ body {
 }
 
 h1 {
+    font-size: 3em;
     width: 50%;
+    min-width: 200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -29,10 +31,11 @@ a {
 }
 
 p {
-    font-size: 20px;
+    font-size: 2em;
 }
 
 #blurb {
+    min-width: 360px;
     padding: 0 5%;
 }
 
