@@ -1,23 +1,25 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 body {
     margin: 0;
     text-align: center;
 }
 
-h1 {
-    font-size: 3em;
+hr {
+    width: 75%;
 }
 
-h2 {
-    font-family: 'EB Garamond' serif;
-    text-align: center;
+h1, h2 {
+    font-size: 3rem;
 }
 
 a {
-    color: white;
     text-decoration: none;
 }
 
-.header {
+header {
     background-color: black;
     background-image: url('../assets/images/header-phone.jpg');
     background-size: cover;
@@ -25,18 +27,22 @@ a {
     background-position-y: center;
 }
 
-.header .inner {
+.inner {
     padding: 100px 20px;
     text-align: center;
     margin: auto;
     max-width: 800px;
     color: white;
-    font-family: 'Open Sans', sans-serif;
     margin: 0 auto;
 }
 
-.header .inner p {
-    font-size: 2em;
+.inner h1 {
+    margin: 0;
+}
+
+.inner p {
+    font-size: 2rem;
+    margin: 0;
 }
 
 #insignia {
@@ -46,7 +52,7 @@ a {
 
 .content {
     max-width: 800px;
-    margin: 70px auto;
+    margin: 50px auto;
 }
 
 .content p {
@@ -59,10 +65,27 @@ a {
 
 .buttons img {
     max-width: 72px;
+    min-width: 60px;
     width: 15%;
     padding: 0 5px;
 }
 
-#caret {
-    max-width: 50px;
+#haiku {
+    width: 65%;
+    margin: 0 auto;
+    padding: 50px 35px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+
+}
+
+@media screen and (max-width: 750px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    #haiku {
+        font-size: 2rem;
+        padding: 35px;
+    }
 }

@@ -6,33 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|EB+Garamond|Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/moment.min.js"></script>
 </head>
 <body>
-    <div class="header">
+    <header>
         <div class="inner">
             <img id="insignia" src="./assets/images/insignia.png" alt="">
             <h1>Dominic Joseph</h1>
             <p>A firm enthusiast of coding, ping pong, and pizza.</p>
-            <div id="content" class="content">
-                <div>
-                    <div class="buttons">
-                        <a href="https://twitter.com/virtualdom_" target="_top">
-                            <img src="./assets/images/twitter.png">
-                        </a>
-                        <a href="https://www.linkedin.com/pub/dominic-joseph/70/b34/451" target="_top">
-                            <img src="./assets/images/linkedin.png">
-                        </a>
-                        <a href="https://github.com/virtualdom" target="_top">
-                            <img src="./assets/images/github.png">
-                        </a>
-                        <a href="mailto:dtpjoseph@gmail.com" target="_top">
-                            <img src="./assets/images/email.png">
-                        </a>
-                    </div>
+            <div class="content">
+                <div class="buttons">
+                    <a href="https://twitter.com/virtualdom_" target="_top">
+                        <img src="./assets/images/twitter.png">
+                    </a>
+                    <a href="https://www.linkedin.com/pub/dominic-joseph/70/b34/451" target="_top">
+                        <img src="./assets/images/linkedin.png">
+                    </a>
+                    <a href="https://github.com/virtualdom" target="_top">
+                        <img src="./assets/images/github.png">
+                    </a>
+                    <a href="mailto:dtpjoseph@gmail.com" target="_top">
+                        <img src="./assets/images/email.png">
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
+    <section>
+        <h2>Dom's latest haiku</h2>
+        <div id="haiku">
+            &nbsp;
+            <br>
+            &nbsp;
+            <br>
+            &nbsp;
+        </div>
+        <p id="haikuTimestamp">&nbsp;</p>
+        <!-- <a href="/haikus">Click here to check out the rest of Dom's haikus!</a> -->
+    </section>
+    <hr>
+    <footer>&copy; 2016 Dominic Joseph. All rights reserved.</footer>
+
+    <script type="text/javascript">
+        $.ajax({
+            method: 'GET',
+            url: 'http://mr.dominicjose.ph/haikus?page[number]=0&page[size]=1'
+        }).done(function (haikus) {
+            var latestHaiku = haikus.data[0];
+            $('#haiku').html(latestHaiku.text);
+            $('#haikuTimestamp').text('Written ' + moment(latestHaiku.date).format('MMMM D, YYYY'));
+        }).fail(function () {
+            $('#haiku').html('I\'m writing haikus<br>Every day for my New Years\'<br>Resolution. Yay!');
+            $('#haikuTimestamp').text('Written January 1, 2016');
+        });
+    </script>
 </body>
 </html>
