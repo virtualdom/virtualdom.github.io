@@ -54,7 +54,7 @@
     <script type="text/javascript">
         $.ajax({
             method: 'GET',
-            url: 'http://mr.dominicjose.ph/haikus?page[number]=0&page[size]=1'
+            url: 'http://haikus.dominicjoseph.io/haikus?page[number]=0&page[size]=1'
         }).done(function (haikus) {
             var latestHaiku = haikus.data[0];
             $('#haiku').html(latestHaiku.text);

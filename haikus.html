@@ -46,7 +46,7 @@
 
     <script id="pagination" type="text/x-handlebars-template">
         <div class="halfLeft">
-            {{#if needsPrevPage}} 
+            {{#if needsPrevPage}}
                 <a href="./haikus?page={{prevPage}}">&#60; Previous page</a>
             {{/if}}
         </div>
@@ -70,7 +70,7 @@
 
         $.ajax({
             method: 'GET',
-            url: 'http://mr.dominicjose.ph/haikus?page[size]=10&page[number]=' + indexNumber,
+            url: 'http://haikus.dominicjoseph.io/haikus?page[size]=10&page[number]=' + indexNumber,
         }).done(function (haikuSet) {
             $('#haikus').html(haikuTemplate(haikuSet));
             $('#controls').html(paginationTemplate({
