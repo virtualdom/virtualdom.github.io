@@ -79,13 +79,30 @@ header {
 
 }
 
-@media screen and (max-width: 750px) {
-    h2 {
+@media screen and (max-width: 600px) {
+    h1, h2 {
         font-size: 2rem;
     }
 
     #haiku {
         font-size: 2rem;
         padding: 35px;
+    }
+
+    #insignia {
+        min-width: 100px;
+    }
+
+    .inner p {
+        font-size: 1rem;
+    }
+
+    .buttons img {
+        max-width: 50px;
+        min-width: 40px;
+    }
+
+    .content {
+        margin: 10px auto;
     }
 }
