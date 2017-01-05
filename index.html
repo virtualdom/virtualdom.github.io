@@ -23,7 +23,7 @@
                     <a href="https://twitter.com/virtualdom_" target="_top">
                         <img src="./assets/images/twitter.png">
                     </a>
-                    <a href="https://www.linkedin.com/pub/dominic-joseph/70/b34/451" target="_top">
+                    <a href="https://www.linkedin.com/in/virtualdom" target="_top">
                         <img src="./assets/images/linkedin.png">
                     </a>
                     <a href="https://github.com/virtualdom" target="_top">
@@ -35,9 +35,12 @@
                 </div>
             </div>
         </div>
+        <div style="padding: 10px; width: 50%; margin: auto;">
+            <p style="color: #fff;margin: 0;">Check out the rest of <a href="https://www.instagram.com/dcolcerart/" style="text-decoration: underline; color: #fff;">Dan Colcer's art</a>.</p>
+        </div>
     </header>
     <section>
-        <h2>Dom's latest haiku</h2>
+        <h2>Dom's haikus of 2016</h2>
         <div id="haiku">
             &nbsp;
             <br>
@@ -51,18 +54,11 @@
     <hr>
     <footer>&copy; 2016 Dominic Joseph. All rights reserved.</footer>
 
+    <script type="text/javascript" src="./haikus.js"></script>
     <script type="text/javascript">
-        $.ajax({
-            method: 'GET',
-            url: 'http://haikus.dominicjoseph.io/haikus?page[number]=0&page[size]=1'
-        }).done(function (haikus) {
-            var latestHaiku = haikus.data[0];
-            $('#haiku').html(latestHaiku.text);
-            $('#haikuTimestamp').text('Written ' + moment(latestHaiku.date).format('MMMM D, YYYY'));
-        }).fail(function () {
-            $('#haiku').html('I\'m writing haikus<br>Every day for my New Years\'<br>Resolution. Yay!');
-            $('#haikuTimestamp').text('Written January 1, 2016');
-        });
+        var latestHaiku = haikus[0];
+        $('#haiku').html(latestHaiku.text);
+        $('#haikuTimestamp').text('Written ' + moment(latestHaiku.date).format('MMMM D, YYYY'));
     </script>
 </body>
 </html>

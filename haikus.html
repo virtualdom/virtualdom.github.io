@@ -57,6 +57,7 @@
         </div>
     </script>
 
+    <script type="text/javascript" src="./haikus.js"></script>
     <script type="text/javascript">
         var pageNumber = Number((new QueryData()).page);
         indexNumber = (!pageNumber || pageNumber < 1) ? 0 : pageNumber - 1;
@@ -68,20 +69,15 @@
         var paginationSource   = $('#pagination').html();
         var paginationTemplate = Handlebars.compile(paginationSource);
 
-        $.ajax({
-            method: 'GET',
-            url: 'http://haikus.dominicjoseph.io/haikus?page[size]=10&page[number]=' + indexNumber,
-        }).done(function (haikuSet) {
-            $('#haikus').html(haikuTemplate(haikuSet));
-            $('#controls').html(paginationTemplate({
-                needsPrevPage: (pageNumber > 1),
-                prevPage: pageNumber - 1,
-                needsNextPage: ((moment().diff(moment('12/31/2015'), 'days') - pageNumber * 10) > 0),
-                nextPage: pageNumber + 1
-            }));
-        }).fail(function () {
-            $('#haikus').html('<h2>Oops, something broke.</h2>');
-        });
+        haikuSet = haikus.slice(10 * indexNumber, 10 * pageNumber);
+
+        $('#haikus').html(haikuTemplate({data: haikuSet}));
+        $('#controls').html(paginationTemplate({
+            needsPrevPage: (pageNumber > 1),
+            prevPage: pageNumber - 1,
+            needsNextPage: (pageNumber < 37),
+            nextPage: pageNumber + 1
+        }));
     </script>
 </body>
 </html>

@@ -21,14 +21,14 @@ a {
 
 header {
     background-color: black;
-    background-image: url('../assets/images/header-phone.jpg');
+    background-image: url('../assets/images/header-mural.jpg');
     background-size: cover;
-    background-position-x: left;
+    background-position-x: right;
     background-position-y: center;
 }
 
 .inner {
-    padding: 100px 20px;
+    padding: 100px 20px 30px 20px;
     text-align: center;
     margin: auto;
     max-width: 800px;
