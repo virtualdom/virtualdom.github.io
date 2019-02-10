@@ -11,7 +11,7 @@ var haikus = [
   {"text":"Embrace the present<br>Before you have to mourn missed<br>Opportunities.","date":"2016-12-22T17:00:00.000Z"},
   {"text":"Don't let your anger<br>Conduct your actions for you<br>Or dictate your mind.","date":"2016-12-21T17:00:00.000Z"},
   {"text":"It takes a village<br>To both raise a child and to<br>Condemn the grown man.","date":"2016-12-20T17:00:00.000Z"},
-  {"text":"The more time you sleep,<br>The less time you love your life.<br>But it feels so good.","date":"2016-12-19T17:00:00.000Z"},
+  {"text":"The more time you sleep,<br>The less time you live your life.<br>But it feels so good.","date":"2016-12-19T17:00:00.000Z"},
   {"text":"Try to be challenged,<br>Or what life has to offer<br>Will not be enough.","date":"2016-12-18T17:00:00.000Z"},
   {"text":"Live every day like<br>It will be your final one<br>And have no regrets.","date":"2016-12-17T17:00:00.000Z"},
   {"text":"Nothing like sipping<br>On a cold beer and waiting <br>For my final grades.","date":"2016-12-16T17:00:00.000Z"},
