@@ -140,7 +140,7 @@ var haikus = [
   {"text":"You have no business<br>Partaking in actions that<br>You can't answer for.","date":"2016-08-15T16:00:00.000Z"},
   {"text":"Always keep in mind<br>That your role is to be part<br>Of something bigger.","date":"2016-08-14T16:00:00.000Z"},
   {"text":"Bye, San Francisco.<br>I'll miss the friends and the fun,<br>But it's time to go.","date":"2016-08-13T16:00:00.000Z"},
-  {"text":"There once was a lobster named Dom<br>Who through all my smash failures stayed calm<br>Activewear he wore<br>And told dad jokes galore<br>Whoosh! Off he goes to grad school with aplomb<br><span style=\"font-family: 'Open Sans', sans-serif; font-size: 1rem;\">A limerick submitted by Pallavi Shankar for my last day at <a href=\"http://www.lob.com\">Lob.com</a>.</span>","date":"2016-08-12T16:00:00.000Z"},
+  {"text":"There once was a lobster named Dom<br>Who through all my smash failures stayed calm<br>Activewear he wore<br>And told dad jokes galore<br>Whoosh! Off he goes to grad school with aplomb<br><span style=\"font-family: Arial;font-weight: 100;font-size: .75rem;\">A limerick submitted by Pallavi Shankar for my last day at <a href=\"http://www.lob.com\">Lob.com</a>.</span>","date":"2016-08-12T16:00:00.000Z"},
   {"text":"The only thing worse<br>Than a bad service is bad<br>Customer service.","date":"2016-08-11T16:00:00.000Z"},
   {"text":"Allergies, people.<br>My immune system is just<br>Trying way too hard.","date":"2016-08-10T16:00:00.000Z"},
   {"text":"Like video games,<br>If you find enemies, you're<br>Going the right way.","date":"2016-08-09T16:00:00.000Z"},
