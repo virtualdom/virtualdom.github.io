@@ -74,7 +74,7 @@
 	    				<div class="row" id="haiku-container"></div>
 	    				<div class="row mt-5">
 			          <div class="col">
-			            <div class="block-27" id="pagination"></div>
+			            <div class="block-27" style="text-align:center;" id="pagination"></div>
 			          </div>
 			        </div>
 	    			</div><!-- END-->
@@ -115,20 +115,19 @@
           return new Handlebars.SafeString(text);
       });
       Handlebars.registerHelper('formatDate', function (date) {
-          return moment(date).format('MMMM D, YYYY');
+          return moment(date).format('MMM D, YYYY');
       });
   </script>
 
   <script id="haikuTemplate" type="text/x-handlebars-template">
       {{#each data}}
-					<div class="col-md-4">
-						<div class="blog-entry">
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<div class="blog-entry shadow p-3 mb-5 bg-white rounded">
 							<div class="text pt-2 mt-3">
-	              <p>{{haiku text}}</p>
+	              <p style="font-family: courier; font-weight: bold">{{haiku text}}</p>
 	              <div class="author mb-4 d-flex align-items-center">
 	            		<div class="ml-3 info">
-	            			<span>Written</span>
-	            			<h3><span>{{formatDate date}}</span></h3>
+	            			<span>Written {{formatDate date}}</span>
 	            		</div>
 	            	</div>
 	            </div>
@@ -142,7 +141,7 @@
     	{{#if needsPrevPage}}
       <li id="page-number-decrease"><a href="./haiku?page={{prevPage}}">&lt;</a></li>
 			{{/if}}
-			<li><input id="page-number-input" type="number" min=1 max=61 class="form-control" style="width: 100px" placeholder="Page Number" value={{currentPage}}></li>
+			<li><input id="page-number-input" type="number" min=1 max={{maxPage}} class="form-control" style="width: 100px" placeholder="Page Number" value={{currentPage}}></li>
       <li id="page-number-jump"><a href="#">Go</a></li>
       {{#if needsNextPage}}
       <li id="page-number-increase"><a href="./haiku?page={{nextPage}}">&gt;</a></li>
@@ -152,12 +151,17 @@
 
   <script type="text/javascript">
       var pageNumber = Number((new QueryData()).page) || 1;
+      var haikuPerPage = 12
+      var max =  Math.ceil(365 / haikuPerPage);
+
+      if (pageNumber > max) pageNumber = max;
+      else if (pageNumber < 1) pageNumber = 1;
 
       indexNumber = (!pageNumber || pageNumber < 1) ? 0 : pageNumber - 1;
       pageNumber = indexNumber + 1;
       var haikuSource   = $('#haikuTemplate').html();
       var haikuTemplate = Handlebars.compile(haikuSource);
-      haikuSet = haikus.slice(6 * indexNumber, 6 * pageNumber);
+      haikuSet = haikus.slice(haikuPerPage * indexNumber, haikuPerPage * pageNumber);
       $('#haiku-container').html(haikuTemplate({data: haikuSet}));
 
       var paginationSource   = $('#pagination-template').html();
@@ -166,12 +170,17 @@
         currentPage: pageNumber,
         needsPrevPage: (pageNumber > 1),
         prevPage: pageNumber - 1,
-        needsNextPage: (pageNumber < 37),
-        nextPage: pageNumber + 1
+        needsNextPage: (pageNumber < Math.ceil(365 / haikuPerPage)),
+        nextPage: pageNumber + 1,
+        maxPage: Math.ceil(365 / haikuPerPage)
       }));
 
-      function jumpToPage (number) {
-      	pageNumber = $("#page-number-input").val()
+      function jumpToPage () {
+      	var pageNumber = $("#page-number-input").val()
+
+        if (pageNumber > max) pageNumber = max;
+        else if (pageNumber < 1) pageNumber = 1;
+
       	window.location.href = "./haiku?page=" + pageNumber;
       }
 
