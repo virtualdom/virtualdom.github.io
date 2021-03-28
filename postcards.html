@@ -141,6 +141,7 @@
 
     .postcard {
       padding: 1%;
+      position: relative;
     }
 
     .postcard img {
@@ -148,27 +149,69 @@
       object-fit: cover;
       width: 300px;
     }
-  </style>
 
+    .postcard .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color:  rgba(0, 0, 0, 0.4);
+    }
+
+    .postcard:hover .overlay {
+      opacity: 1;
+    }
+
+  .text {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  </style>
 
   <script id="postcardTemplate" type="text/x-handlebars-template">
       {{#each data}}
       <div class="postcard">
-        <img src="{{ url }}">
+        <img src="{{ imgUrl }}">
+        <div class="overlay">
+          <div class="text">{{ location }}</div>
+        </div>
       </div>
       {{/each}}
   </script>
 
   <script type="text/javascript">
         const apiURL = 'https://raw.githubusercontent.com/virtualdom/pics/master';
+        const locationPromises = [];
         const postcardTemplate = Handlebars.compile($('#postcardTemplate').html());
         const splitManifest = (m) => m.split('\n').filter(w => w).sort();
 
         $.get(`${apiURL}/manifest`, (manifest) => {
           const dates = splitManifest(manifest);
-          const thumbURLs = dates.map((date) => ({url: `${apiURL}/${date}/thumbnail.png`})).reverse();
+          const posts = dates.map((date) => {
+            locationPromises.push($.get(`${apiURL}/${date}/metadata`));
+            return { imgUrl: `${apiURL}/${date}/thumbnail.png` };
+          });
 
-          $('#postcard-container').html(postcardTemplate({data: thumbURLs}));
+          Promise.all(locationPromises).then((locations) => {
+            posts.map((post, i) => {
+              console.log(JSON.parse(locations[i]))
+              post.location = JSON.parse(locations[i]).location;
+            });
+
+            $('#postcard-container').html(postcardTemplate({data: posts.reverse()}));
+          });
         });
   </script>
   </body>
