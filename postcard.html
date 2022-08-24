@@ -180,7 +180,8 @@
   </script>
 
   <script type="text/javascript">
-        const apiURL = 'https://raw.githubusercontent.com/virtualdom/pics/master';
+        // const apiURL = 'https://raw.githubusercontent.com/virtualdom/pics/master';
+        const apiURL = 'https://ik.imagekit.io/59z1efxoh';
         const imageTemplate = Handlebars.compile($('#imageTemplate').html());
         const carouselIndicatorsTemplate = Handlebars.compile($('#carouselIndicatorsTemplate').html());
         const splitManifest = (m) => m.split('\n').filter(w => w).sort();
@@ -191,7 +192,7 @@
             window.location.replace('/postcards');
           }
 
-          let request = $.get(`${apiURL}/${postDate}/manifest`, (manifest) => {
+          let request = $.get(`${apiURL}/${postDate}/manifest.txt`, (manifest) => {
             $('title').text(`Postcard ${postDate} - Dom`);
             const imageNames = splitManifest(manifest);
             const images = imageNames.map((imageName) => {

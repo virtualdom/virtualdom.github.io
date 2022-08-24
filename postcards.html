@@ -195,15 +195,16 @@
   </script>
 
   <script type="text/javascript">
-        const apiURL = 'https://raw.githubusercontent.com/virtualdom/pics/master';
+        // const apiURL = 'https://raw.githubusercontent.com/virtualdom/pics/master';
+        const apiURL = 'https://ik.imagekit.io/59z1efxoh';
         const locationPromises = [];
         const postcardTemplate = Handlebars.compile($('#postcardTemplate').html());
         const splitManifest = (m) => m.split('\n').filter(w => w).sort();
 
-        $.get(`${apiURL}/manifest`, (manifest) => {
+        $.get(`${apiURL}/manifest.txt`, (manifest) => {
           const dates = splitManifest(manifest);
           const posts = dates.map((date) => {
-            locationPromises.push($.get(`${apiURL}/${date}/metadata`));
+            locationPromises.push($.get(`${apiURL}/${date}/metadata.txt`));
             return { imgUrl: `${apiURL}/${date}/thumbnail.png`, postDate: date };
           });
 
